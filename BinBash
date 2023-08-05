@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#fancy shit__//
+echo -e "
+██████╗ ██╗███╗   ██╗██████╗  █████╗ ███████╗██╗  ██╗
+██╔══██╗██║████╗  ██║██╔══██╗██╔══██╗██╔════╝██║  ██║
+██████╔╝██║██╔██╗ ██║██████╔╝███████║███████╗███████║
+██╔══██╗██║██║╚██╗██║██╔══██╗██╔══██║╚════██║██╔══██║
+██████╔╝██║██║ ╚████║██████╔╝██║  ██║███████║██║  ██║
+╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝                                                   
+";
+
+#install dep___//
+lib_setup(){
+	sudo add-apt-repository ppa:neurobin/ppa 
+	sudo apt-get update
+	sudo apt-get install shc -y
+}
+read_filename(){
+	read -p "enter script file name ::::" filename;
+}
+
+create_binary(){
+	read -p "enter binary output ::::" output;
+}
+
+core(){
+	shc -f $filename -o $output;
+	ls .
+}
+
+
+main(){
+	lib_setup;
+	read_filename;
+	create_binary;
+	core;
+
+}
+
+#RUN!
+main;
